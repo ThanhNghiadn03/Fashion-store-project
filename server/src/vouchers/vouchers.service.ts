@@ -10,10 +10,10 @@ export class VouchersService {
   constructor(@InjectModel(Voucher.name) private VoucherModel: Model<Voucher>) {}
   async create(createVoucherDto: CreateVoucherDto) {
     let Voucher = await this.VoucherModel.create({
-      idVoucher : createVoucherDto.id,
+      idVoucher : createVoucherDto.idVoucher,
       descriptionVoucher: createVoucherDto.description,
       quantity: createVoucherDto.quantity,
-      typeVoucher: createVoucherDto.type,
+      typeVoucher: createVoucherDto.typeVoucher,
       discount: createVoucherDto.discount,
       startDate: new Date(createVoucherDto.startDate),
       endDate: new Date(createVoucherDto.endDate)
@@ -22,19 +22,19 @@ export class VouchersService {
   }
 
   async findAll() {
-    let listVouchers = await this.VoucherModel.find({})
-    return listVouchers;
+    let result = await this.VoucherModel.find({})
+    return {result};
   }
 
   async findOne(id: string) {
     if(!mongoose.Types.ObjectId.isValid(id)) {
-      return "Do not found voucher";
+      return "ID voucher bị sai";
     }
     let voucher = await this.VoucherModel.findOne({
       _id: id
     })
     if(voucher == null) {
-      return "Do not found voucher";
+      return "Không tìm thấy voucher";
     }
     return voucher;
   }

@@ -26,7 +26,12 @@ export class CreateProductDto {
     discount: number;
 
     descriptionProduct: string;
+
+    @IsNotEmpty({
+        message: 'Phải thêm ảnh'
+    })
     imageProduct: string;
+    
     idEvaluated: string;
 
     

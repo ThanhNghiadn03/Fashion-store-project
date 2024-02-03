@@ -4,12 +4,12 @@ export class CreateVoucherDto {
     @IsNotEmpty({
         message: 'Phải nhập mã giảm giá.'
     })
-    id: string;
+    idVoucher: string;
 
     @IsNotEmpty({
         message: 'Phải nhập loại giảm giá.'
     })
-    type: string;
+    typeVoucher: string;
 
     @IsNotEmpty({
         message: 'Phải nhập số lượng voucher.'

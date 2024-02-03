@@ -61,6 +61,28 @@ export interface IUser {
     updatedAt?: string;
 }
 
+export interface ICustomer {
+    _id?: string;
+    firstName: string;
+    email: string;
+    password?: string;
+    // age: number;
+    lastName: string;
+    phoneNumber: string;
+    idRole?: string;
+    // company?: {
+    //     _id: string;
+    //     name: string;
+    // }
+    createdBy?: string;
+    isDeleted?: boolean;
+    deletedAt?: boolean | null;
+    createdAt?: string;
+    updatedAt?: string;
+}
+
+
+
 export interface IProduct {
     _id?: string;
     nameProduct,
@@ -70,6 +92,21 @@ export interface IProduct {
     imageProduct,
     quantity,
     idCategory,
+    createdBy?: string;
+    isDeleted?: boolean;
+    deletedAt?: boolean | null;
+    createdAt?: string;
+    updatedAt?: string;
+}
+export interface IVoucher {
+    _id?: string;
+    idVoucher,
+    typeVoucher,
+    discount,
+    quantity,
+    descriptionVoucher,
+    startDate,
+    endDate,
     createdBy?: string;
     isDeleted?: boolean;
     deletedAt?: boolean | null;

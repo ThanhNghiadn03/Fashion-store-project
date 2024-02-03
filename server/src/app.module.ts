@@ -17,6 +17,7 @@ import { AuthModule } from './auth/auth.module';
 import { AdminModule } from './admin/admin.module';
 import { APP_GUARD } from '@nestjs/core';
 import { JwtAuthGuard } from './auth/jwt-auth.guard';
+import { FilesModule } from './files/files.module';
 
 @Module({
   imports:  [
@@ -32,6 +33,7 @@ import { JwtAuthGuard } from './auth/jwt-auth.guard';
     ShippingCompaniesModule,
     AuthModule,
     AdminModule,
+    FilesModule,
   ],
   controllers: [AppController],
   providers: [

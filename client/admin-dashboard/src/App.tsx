@@ -25,6 +25,7 @@ import { fetchAccount } from './redux/slice/accountSlide';
 import LayoutApp from './components/share/layout.app';
 import JobPage from './pages/admin/job';
 import ProductPage from './pages/admin/product';
+import VoucherPage from './pages/admin/voucher';
 
 const LayoutClient = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -39,7 +40,7 @@ const LayoutClient = () => {
 
 export default function App() {
   const dispatch = useAppDispatch();
-  const isLoading = useAppSelector(state => state.account.isLoading);
+  // const isLoading = useAppSelector(state => state.account.isLoading);
 
 
   useEffect(() => {
@@ -100,7 +101,7 @@ export default function App() {
           path: "voucher",
           element:
             <ProtectedRoute>
-              <ResumePage />
+              <VoucherPage />
             </ProtectedRoute>
         },
         {

@@ -1306,6 +1306,13 @@
   "resolved" "https://registry.npmjs.org/@types/ms/-/ms-0.7.34.tgz"
   "version" "0.7.34"
 
+"@types/multer@^1.4.11":
+  "integrity" "sha512-svK240gr6LVWvv3YGyhLlA+6LRRWA4mnGIU7RcNmgjBYFl6665wcXrRfxGp5tEPVHUNm5FMcmq7too9bxCwX/w=="
+  "resolved" "https://registry.npmjs.org/@types/multer/-/multer-1.4.11.tgz"
+  "version" "1.4.11"
+  dependencies:
+    "@types/express" "*"
+
 "@types/node-fetch@^2.6.1":
   "integrity" "sha512-PPpPK6F9ALFTn59Ka3BaL+qGuipRfxNE8qVgkp0bVixeiR2c2/L+IVOiBdu9JhhT22sWnQEp6YyHGI2b2+CMcA=="
   "resolved" "https://registry.npmjs.org/@types/node-fetch/-/node-fetch-2.6.10.tgz"

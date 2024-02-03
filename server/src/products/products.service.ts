@@ -19,6 +19,7 @@ export class ProductsService {
       idCategory : createProductDto.idCategory
     }
     );
+    console.log(product);
     return product;
   }
 

@@ -7,6 +7,7 @@ import accountReducer from './slice/accountSlide';
 import companyReducer from './slice/companySlide';
 import userReducer from './slice/userSlide';
 import productReducer from './slice/productSlide';
+import voucherReducer from './slice/voucherSlide';
 
 export const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ export const store = configureStore({
     company: companyReducer,
     user: userReducer,
     product: productReducer,
+    voucher: voucherReducer
   },
 });
 

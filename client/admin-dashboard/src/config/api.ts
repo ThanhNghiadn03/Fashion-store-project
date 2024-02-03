@@ -1,4 +1,4 @@
-import { IBackendRes, ICompany, IAccount, IUser, IModelPaginate, IGetAccount, IProduct } from '@/types/backend';
+import { IBackendRes, ICompany, IAccount, IUser, IModelPaginate, IGetAccount, IProduct, IVoucher } from '@/types/backend';
 import axios from 'config/axios-customize';
 
 /**
@@ -23,6 +23,24 @@ export const callRefreshToken = () => {
 
 export const callLogout = () => {
     return axios.post<IBackendRes<string>>('/api/v1/auth/logout')
+}
+
+
+/**
+ * Upload single file
+ */
+export const callUploadSingleFile = (file: any, folderType: string) => {
+    const bodyFormData = new FormData();
+    bodyFormData.append('fileUpload', file);
+    return axios<IBackendRes<{ fileName: string }>>({
+        method: 'post',
+        url: 'files/upload',
+        data: bodyFormData,
+        headers: {
+            "Content-Type": "multipart/form-data",
+            "folder_type": folderType
+        },
+    });
 }
 
 
@@ -86,3 +104,24 @@ export const callDeleteProduct = (id: string) => {
 export const callFetchProduct = () => {
     return axios.get<IBackendRes<IModelPaginate<IProduct>>>(`/products`);
 }
+
+/**
+ * 
+Module Voucher
+ */
+export const callCreateVoucher = (voucher: IVoucher) => {
+    return axios.post<IBackendRes<IVoucher>>('/vouchers', { ...voucher })
+}
+
+export const callUpdateVoucher = (voucher: IVoucher) => {
+    return axios.patch<IBackendRes<IVoucher>>(`/vouchers`, { ...voucher })
+}
+
+export const callDeleteVoucher = (id: string) => {
+    return axios.delete<IBackendRes<IVoucher>>(`/vouchers/${id}`);
+}
+
+export const callFetchVoucher = () => {
+    return axios.get<IBackendRes<IModelPaginate<IVoucher>>>(`/vouchers`);
+}
+

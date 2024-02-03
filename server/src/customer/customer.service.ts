@@ -14,19 +14,27 @@ export class CustomerService {
     return hash;
   }
   async create(createCustomerDto: CreateCustomerDto) {
+    console.log(createCustomerDto);
     let customer = await this.CustomerModel.create({
-      firstName : createCustomerDto.firstName,
-      lastName: createCustomerDto.lastName,
+      fullName : createCustomerDto.fullName,
+      gender: createCustomerDto.gender,
+      dateOfBirth: createCustomerDto.dateOfBirth,
       email: createCustomerDto.email,
       phoneNumber: createCustomerDto.phoneNumber,
-      password: this.getHashPassword(createCustomerDto.password)
+      password: this.getHashPassword(createCustomerDto.password),
+      address: {
+        city: createCustomerDto.city,
+        district: createCustomerDto.district,
+        detailAddress: createCustomerDto.detailAddress
+      }
     })
+    // console.log(customer);
     return customer;
   }
 
   async findAll() {
-    let listCustomers = await this.CustomerModel.find({})
-    return listCustomers;
+    let result = await this.CustomerModel.find({})
+    return {result};
   }
 
   async findOne(id: string) {

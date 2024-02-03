@@ -7,10 +7,13 @@ export type CustomerDocument = HydratedDocument<Customer>;
 @Schema({ timestamps: true })
 export class Customer {
     @Prop()
-    firstName: string;
+    fullName: string;
 
     @Prop()
-    lastName: string;
+    gender: string;
+
+    @Prop()
+    dateOfBirth: Date;
 
     @Prop()
     email: string;
@@ -21,13 +24,13 @@ export class Customer {
     @Prop()
     password: string;
 
-    @Prop()
+    @Prop({type: Object})
     address: 
-    [{
+    {
         city: string,
         district: string,
         detailAddress: string
-    }];
+    };
 
     @Prop(
     {
