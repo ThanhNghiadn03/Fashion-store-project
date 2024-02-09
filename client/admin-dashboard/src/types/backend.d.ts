@@ -63,17 +63,12 @@ export interface IUser {
 
 export interface ICustomer {
     _id?: string;
-    firstName: string;
+    fullName: string;
+    gender: string;
+    dateOfBirth: string;
     email: string;
-    password?: string;
-    // age: number;
-    lastName: string;
+    password: string;
     phoneNumber: string;
-    idRole?: string;
-    // company?: {
-    //     _id: string;
-    //     name: string;
-    // }
     createdBy?: string;
     isDeleted?: boolean;
     deletedAt?: boolean | null;

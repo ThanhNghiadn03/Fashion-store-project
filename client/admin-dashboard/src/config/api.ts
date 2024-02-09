@@ -1,12 +1,12 @@
-import { IBackendRes, ICompany, IAccount, IUser, IModelPaginate, IGetAccount, IProduct, IVoucher } from '@/types/backend';
+import { IBackendRes, ICompany, IAccount, IUser, IModelPaginate, IGetAccount, IProduct, IVoucher, ICustomer } from '@/types/backend';
 import axios from 'config/axios-customize';
 
 /**
  * 
 Module Auth
  */
-export const callRegister = (name: string, email: string, password: string, age: number, gender: string, address: string) => {
-    return axios.post<IBackendRes<IUser>>('/api/v1/auth/register', { name, email, password, age, gender, address })
+export const callRegister = (fullName: string, email: string, password: string, dateOfBirth: string, gender: string, phoneNumber: string) => {
+    return axios.post<IBackendRes<ICustomer>>('/customers/register', { fullName, email, password, dateOfBirth, gender, phoneNumber})
 }
 
 export const callLogin = (username: string, password: string) => {

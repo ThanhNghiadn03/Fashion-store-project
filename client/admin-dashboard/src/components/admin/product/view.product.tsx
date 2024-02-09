@@ -4,6 +4,11 @@ import dayjs from 'dayjs';
 import { useState } from "react";
 import styles from 'styles/client.module.scss';
 
+<style>
+    img {
+    }
+</style>
+
 interface IProps {
     onClose: (v: boolean) => void;
     open: boolean;
@@ -37,11 +42,10 @@ const ViewDetailProduct = (props: IProps) => {
                             style={{ height: 50 }}
                             hoverable
                             cover={ */}
-                        <div className={styles.displayProduct} >
+                        <div>
                             <img
                                 alt="example"
                                 src={`${import.meta.env.VITE_BACKEND_URL}/images/products/${dataInit?.imageProduct}`}
-                                className={styles.ViewDetailProduct}
                             />
                         </div>
                             {/* }
@@ -55,5 +59,6 @@ const ViewDetailProduct = (props: IProps) => {
         </>
     )
 }
+
 
 export default ViewDetailProduct;
