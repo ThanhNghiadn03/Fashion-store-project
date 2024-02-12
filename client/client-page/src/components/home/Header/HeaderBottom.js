@@ -47,10 +47,10 @@ const HeaderBottom = () => {
             ref={ref}
             className="flex h-14 cursor-pointer items-center gap-2 text-primeColor"
           >
-            <HiOutlineMenuAlt4 className="w-5 h-5" />
-            <p className="text-[14px] font-normal">Shop by Category</p>
+            {/* <HiOutlineMenuAlt4 className="w-5 h-5" />
+            <p className="text-[14px] font-normal">Shop by Category</p> */}
 
-            {show && (
+            {/* {show && (
               <motion.ul
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -76,7 +76,7 @@ const HeaderBottom = () => {
                   Home appliances
                 </li>
               </motion.ul>
-            )}
+            )} */}
           </div>
           <div className="relative w-full lg:w-[600px] h-[50px] text-base text-primeColor bg-white flex items-center gap-2 justify-between px-6 rounded-xl">
             <input
