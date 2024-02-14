@@ -138,11 +138,11 @@ const SignUp = () => {
           </Link>
           <div className="flex flex-col gap-1 -mt-1">
             <h1 className="font-titleFont text-xl font-medium">
-              Get started for free
+              Tạo tài khoản miễn phí
             </h1>
-            <p className="text-base">Create your account to access more</p>
+            <p className="text-base">Tham gia cộng đồng S4M</p>
           </div>
-          <div className="w-[300px] flex items-start gap-3">
+          {/* <div className="w-[300px] flex items-start gap-3">
             <span className="text-green-500 mt-1">
               <BsCheckCircleFill />
             </span>
@@ -154,8 +154,8 @@ const SignUp = () => {
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab omnis
               nisi dolor recusandae consectetur!
             </p>
-          </div>
-          <div className="w-[300px] flex items-start gap-3">
+          </div> */}
+          {/* <div className="w-[300px] flex items-start gap-3">
             <span className="text-green-500 mt-1">
               <BsCheckCircleFill />
             </span>
@@ -180,8 +180,8 @@ const SignUp = () => {
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab omnis
               nisi dolor recusandae consectetur!
             </p>
-          </div>
-          <div className="flex items-center justify-between mt-10">
+          </div> */}
+          {/* <div className="flex items-center justify-between mt-10">
             <p className="text-sm font-titleFont font-semibold text-gray-300 hover:text-white cursor-pointer duration-300">
               © S4M
             </p>
@@ -194,7 +194,7 @@ const SignUp = () => {
             <p className="text-sm font-titleFont font-semibold text-gray-300 hover:text-white cursor-pointer duration-300">
               Security
             </p>
-          </div>
+          </div> */}
         </div>
       </div>
       <div className="w-full lgl:w-[500px] h-full flex flex-col justify-center">
@@ -216,20 +216,20 @@ const SignUp = () => {
           <form className="w-full lgl:w-[500px] h-screen flex items-center justify-center">
             <div className="px-6 py-4 w-full h-[96%] flex flex-col justify-start overflow-y-scroll scrollbar-thin scrollbar-thumb-primeColor">
               <h1 className="font-titleFont underline underline-offset-4 decoration-[1px] font-semibold text-2xl mdl:text-3xl mb-4">
-                Create your account
+                Đăng kí tài khoản
               </h1>
               <div className="flex flex-col gap-3">
                 {/* client name */}
                 <div className="flex flex-col gap-.5">
                   <p className="font-titleFont text-base font-semibold text-gray-600">
-                    Full Name
+                    Họ tên
                   </p>
                   <input
                     onChange={handleName}
                     value={clientName}
                     className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
                     type="text"
-                    placeholder="eg. John Doe"
+                    // placeholder="eg. John Doe"
                   />
                   {errClientName && (
                     <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
@@ -241,14 +241,14 @@ const SignUp = () => {
                 {/* Email */}
                 <div className="flex flex-col gap-.5">
                   <p className="font-titleFont text-base font-semibold text-gray-600">
-                    Work Email
+                    Email
                   </p>
                   <input
                     onChange={handleEmail}
                     value={email}
                     className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
                     type="email"
-                    placeholder="john@workemail.com"
+                    // placeholder="john@workemail.com"
                   />
                   {errEmail && (
                     <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
@@ -260,14 +260,14 @@ const SignUp = () => {
                 {/* Phone Number */}
                 <div className="flex flex-col gap-.5">
                   <p className="font-titleFont text-base font-semibold text-gray-600">
-                    Phone Number
+                    Số điện thoại
                   </p>
                   <input
                     onChange={handlePhone}
                     value={phone}
                     className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
                     type="text"
-                    placeholder="008801234567891"
+                    // placeholder="008801234567891"
                   />
                   {errPhone && (
                     <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
@@ -279,14 +279,14 @@ const SignUp = () => {
                 {/* Password */}
                 <div className="flex flex-col gap-.5">
                   <p className="font-titleFont text-base font-semibold text-gray-600">
-                    Password
+                    Mật khẩu
                   </p>
                   <input
                     onChange={handlePassword}
                     value={password}
                     className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
                     type="password"
-                    placeholder="Create password"
+                    // placeholder="Create password"
                   />
                   {errPassword && (
                     <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
@@ -296,7 +296,7 @@ const SignUp = () => {
                   )}
                 </div>
                 {/* Address */}
-                <div className="flex flex-col gap-.5">
+                {/* <div className="flex flex-col gap-.5">
                   <p className="font-titleFont text-base font-semibold text-gray-600">
                     Address
                   </p>
@@ -313,9 +313,9 @@ const SignUp = () => {
                       {errAddress}
                     </p>
                   )}
-                </div>
+                </div> */}
                 {/* City */}
-                <div className="flex flex-col gap-.5">
+                {/* <div className="flex flex-col gap-.5">
                   <p className="font-titleFont text-base font-semibold text-gray-600">
                     City
                   </p>
@@ -332,9 +332,9 @@ const SignUp = () => {
                       {errCity}
                     </p>
                   )}
-                </div>
+                </div> */}
                 {/* Country */}
-                <div className="flex flex-col gap-.5">
+                {/* <div className="flex flex-col gap-.5">
                   <p className="font-titleFont text-base font-semibold text-gray-600">
                     Country
                   </p>
@@ -351,9 +351,9 @@ const SignUp = () => {
                       {errCountry}
                     </p>
                   )}
-                </div>
+                </div> */}
                 {/* Zip code */}
-                <div className="flex flex-col gap-.5">
+                {/* <div className="flex flex-col gap-.5">
                   <p className="font-titleFont text-base font-semibold text-gray-600">
                     Zip/Postal code
                   </p>
@@ -370,7 +370,7 @@ const SignUp = () => {
                       {errZip}
                     </p>
                   )}
-                </div>
+                </div> */}
                 {/* Checkbox */}
                 <div className="flex items-start mdl:items-center gap-2">
                   <input
@@ -379,26 +379,30 @@ const SignUp = () => {
                     type="checkbox"
                   />
                   <p className="text-sm text-primeColor">
-                    I agree to the S4M{" "}
-                    <span className="text-blue-500">Terms of Service </span>and{" "}
-                    <span className="text-blue-500">Privacy Policy</span>.
+                    Tôi đồng ý với S4M về{" "}
+                    <span className="text-blue-500">Điều khoản dịch vụ </span>và{" "}
+                    <span className="text-blue-500">Chính sách bảo mật</span>.
                   </p>
                 </div>
                 <button
                   onClick={handleSignUp}
+                  // className={`${
+                  //   checked
+                  //     ? "bg-primeColor hover:bg-black hover:text-white cursor-pointer"
+                  //     : "bg-gray-500 hover:bg-gray-500 hover:text-gray-200 cursor-none"
+                  // } w-full text-gray-200 text-base font-medium h-10 rounded-md hover:text-white duration-300`}
                   className={`${
-                    checked
-                      ? "bg-primeColor hover:bg-black hover:text-white cursor-pointer"
-                      : "bg-gray-500 hover:bg-gray-500 hover:text-gray-200 cursor-none"
+                    // checked
+                      "bg-primeColor hover:bg-black hover:text-white cursor-pointer"
                   } w-full text-gray-200 text-base font-medium h-10 rounded-md hover:text-white duration-300`}
                 >
-                  Create Account
+                  Đăng kí
                 </button>
                 <p className="text-sm text-center font-titleFont font-medium">
-                  Don't have an Account?{" "}
+                  Bạn đã có tài khoản?{" "}
                   <Link to="/signin">
                     <span className="hover:text-blue-600 duration-300">
-                      Sign in
+                      Đăng nhập
                     </span>
                   </Link>
                 </p>
