@@ -44,7 +44,7 @@ const Price = () => {
               key={item._id}
               className="border-b-[1px] border-b-[#F0F0F0] pb-2 flex items-center gap-2 hover:text-primeColor hover:border-gray-400 duration-300"
             >
-              ${item.priceOne.toFixed(2)} - ${item.priceTwo.toFixed(2)}
+              {item.priceOne.toFixed(2)}VNĐ - {item.priceTwo.toFixed(2)}VNĐ
             </li>
           ))}
         </ul>

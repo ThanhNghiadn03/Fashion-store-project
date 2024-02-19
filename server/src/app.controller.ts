@@ -16,12 +16,20 @@ export class AppController {
   @UseGuards(LocalAuthGuard)
   @Post(['/admins/login','/customers/login'])
   handleLogin(@Request() req) {
-    return this.authService.login(req.user._doc);
+    let result = this.authService.login(req.user._doc);
+    console.log(result);
+    return result;
   }
 
   @UseGuards(JwtAuthGuard)
   @Get('/admins/profile')
   getProfile(@Request() req) {
+    return req.user;
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Get('/customers/profile')
+  getProfileCustomer(@Request() req) {
     return req.user;
   }
 }

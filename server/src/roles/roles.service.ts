@@ -34,6 +34,19 @@ export class RolesService {
     return role;
   }
 
+  async findRoleById(id: string) {
+    if(!mongoose.Types.ObjectId.isValid(id)) {
+      return "Do not found Role";
+    }
+    let role = await this.RoleModel.findOne({
+      _id: id
+    })
+    if(role == null) {
+      return "Do not found Role";
+    }
+    return role.nameRole;
+  }
+
   update(id: number, updateRoleDto: UpdateRoleDto) {
     return `This action updates a #${id} role`;
   }

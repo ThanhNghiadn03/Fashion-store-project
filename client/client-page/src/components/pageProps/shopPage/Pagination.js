@@ -2,6 +2,7 @@ import React, { useState,useEffect } from "react";
 import ReactPaginate from "react-paginate";
 import Product from "../../home/Products/Product";
 import { paginationItems } from "../../../constants";
+import axios from "axios";
 
 
 const Pagination = ({ itemsPerPage }) => {
@@ -15,12 +16,13 @@ const Pagination = ({ itemsPerPage }) => {
     // Fetch data from API
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:6969/products');
-        const data = await response.json();
-        if (data.statusCode === 200) {
-          setItems(data.data.result); 
+        
+        const response = await axios.get('http://localhost:6969/products');
+        console.log(response);
+        if (response.data.statusCode === 200) {
+          setItems(response.data.data.result);
         } else {
-          console.error('Error fetching data:', data);
+          // console.error('Error fetching data:', data);
         }
 
         setLoading(false);

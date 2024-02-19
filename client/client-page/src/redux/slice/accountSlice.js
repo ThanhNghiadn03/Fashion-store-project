@@ -1,12 +1,11 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-// import axios from '@/config/axios-customize';
-// import { callFetchAccount } from '@/config/api';
+import axios from 'axios';
 
 // First, create the thunk
 export const fetchAccount = createAsyncThunk(
     'account/fetchAccount',
     async () => {
-        const response = await callFetchAccount();
+        const response = await axios.get('http://localhost:6969/customers/profile');
         return response.data;
     }
 )
