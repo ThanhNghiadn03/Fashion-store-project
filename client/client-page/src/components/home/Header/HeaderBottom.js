@@ -28,6 +28,7 @@ const HeaderBottom = () => {
     if (!localStorage.getItem('access_token')===undefined) {
       setIsVisible(true);
     }
+    console.log(localStorage.getItem('access_token'));
   })
 
   const [searchQuery, setSearchQuery] = useState("");
@@ -154,7 +155,7 @@ const HeaderBottom = () => {
                 transition={{ duration: 0.5 }}
                 className="absolute top-6 left-0 z-50 bg-primeColor w-44 text-[#767676] h-auto p-4 pb-6"
               >
-                {!isVisible && (<Link to="/signin">
+                {isVisible == false && (<Link to="/signin">
                   <li className="text-gray-400 px-4 py-1 border-b-[1px] border-b-gray-400 hover:border-b-white hover:text-white duration-300 cursor-pointer">
                     Login
                   </li>
@@ -162,7 +163,7 @@ const HeaderBottom = () => {
                 {/* <li className="text-gray-400 px-4 py-1 border-b-[1px] border-b-gray-400 hover:border-b-white hover:text-white duration-300 cursor-pointer">
                   Profile
                 </li> */}
-                {isVisible && (<Link onClick={logoutAccount} to="/signin">
+                {isVisible == true && (<Link onClick={logoutAccount} to="/signin">
                   <li className="text-gray-400 px-4 py-1 border-b-[1px] border-b-gray-400 hover:border-b-white hover:text-white duration-300 cursor-pointer">
                     Logout
                   </li>

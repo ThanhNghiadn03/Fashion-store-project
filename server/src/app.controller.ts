@@ -1,10 +1,11 @@
-import { Controller, Get, Post, Render, Request, UseGuards } from '@nestjs/common';
+import { Controller, Get, Post, Render, Req, Request, Res, UseGuards } from '@nestjs/common';
 import { AppService } from './app.service';
 import { AuthGuard } from '@nestjs/passport';
 import { LocalAuthGuard } from './auth/local-auth.guard';
 import { AuthService } from './auth/auth.service';
 import { JwtAuthGuard } from './auth/jwt-auth.guard';
 import { Public } from './decorator/customize';
+import { Response } from 'express';
 
 @Controller()
 export class AppController {
@@ -15,9 +16,11 @@ export class AppController {
 
   @UseGuards(LocalAuthGuard)
   @Post(['/admins/login','/customers/login'])
-  handleLogin(@Request() req) {
-    let result = this.authService.login(req.user._doc);
-    console.log(result);
+  handleLogin(
+    @Req() req,
+    @Res({ passthrough: true}) response: Response
+  ) {
+    let result = this.authService.login(req.user._doc,response);
     return result;
   }
 
@@ -32,4 +35,6 @@ export class AppController {
   getProfileCustomer(@Request() req) {
     return req.user;
   }
+
+
 }

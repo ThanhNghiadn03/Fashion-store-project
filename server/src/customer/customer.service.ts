@@ -76,4 +76,11 @@ export class CustomerService {
     }
     return await this.CustomerModel.deleteOne({_id:id});
   }
+
+  updateCustomerService = async(refresh_token: string, id: string) => {
+    return await this.CustomerModel.updateOne(
+      {_id : id},
+      {refreshToken: refresh_token}
+    )
+  }
 }

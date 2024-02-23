@@ -43,6 +43,9 @@ export class Customer {
     idRole: mongoose.Types.ObjectId;
 
     @Prop()
+    refreshToken: string;
+
+    @Prop()
     createdAt: Date
 
     @Prop()

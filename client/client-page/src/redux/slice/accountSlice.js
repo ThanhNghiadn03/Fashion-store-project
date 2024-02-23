@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
+
 // First, create the thunk
 export const fetchAccount = createAsyncThunk(
     'account/fetchAccount',
@@ -12,7 +13,7 @@ export const fetchAccount = createAsyncThunk(
 
 const initialState = {
     // isAuthenticated: false,
-    isAuthenticated: true,
+    isAuthenticated: false,
     isLoading: true,
     isRefreshToken: false,
     errorRefreshToken: "",
@@ -43,6 +44,7 @@ export const accountSlide = createSlice({
                 ...state.user,
                 ...action.payload
             }
+            console.log(state.isAuthenticated);
         },
         setLogoutAction: (state, action) => {
             localStorage.removeItem('access_token');

@@ -15,7 +15,7 @@ const LoginPage = () => {
         //đã login => redirect to '/'
         if (localStorage.getItem('access_token')) {
             // navigate('/');
-            window.location.href = '/';
+            // window.location.href = '/';
         }
     }, [])
 
@@ -28,7 +28,7 @@ const LoginPage = () => {
             localStorage.setItem('access_token', res.data.access_token);
             dispatch(setUserLoginInfo(res.data.user))
             message.success('Đăng nhập tài khoản thành công!');
-            window.location.href = '/';
+            // window.location.href = '/';
         } else {
             notification.error({
                 message: "Có lỗi xảy ra",

@@ -53,15 +53,15 @@ export default function App() {
   }, [])
 
   const router = createBrowserRouter([
-    {
-      path: "/",
-      element: (<LayoutApp><LayoutClient /></LayoutApp>),
-      errorElement: <NotFound />,
-      children: [
-        { index: true, element: <HomePage /> },
+    // {
+    //   path: "/",
+    //   element: (<LayoutApp><LayoutClient /></LayoutApp>),
+    //   errorElement: <NotFound />,
+    //   children: [
+    //     { index: true, element: <HomePage /> },
 
-      ],
-    },
+    //   ],
+    // },
 
     {
       path: "/admin",

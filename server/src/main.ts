@@ -4,7 +4,9 @@ import { NestExpressApplication } from '@nestjs/platform-express';
 import { join } from 'path';
 import { ValidationPipe } from '@nestjs/common';
 import { TransformInterceptor } from './core/tranform.interceptor';
+import cookieParser from 'cookie-parser';
 require('dotenv').config();
+
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
@@ -13,6 +15,7 @@ async function bootstrap() {
   app.setViewEngine('ejs');
   app.useGlobalPipes(new ValidationPipe());
   app.useGlobalInterceptors(new TransformInterceptor());
+  app.use(cookieParser());
   //config cors
   app.enableCors(
     {

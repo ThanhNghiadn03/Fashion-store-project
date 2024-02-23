@@ -12,23 +12,23 @@ const Cart = () => {
   const products = useSelector((state) => state.orebiReducer.products);
   const [totalAmt, setTotalAmt] = useState("");
   const [shippingCharge, setShippingCharge] = useState("");
-  useEffect(() => {
-    let price = 0;
-    products.map((item) => {
-      price += item.price * item.quantity;
-      return price;
-    });
-    setTotalAmt(price);
-  }, [products]);
-  useEffect(() => {
-    if (totalAmt <= 200) {
-      setShippingCharge(30);
-    } else if (totalAmt <= 400) {
-      setShippingCharge(25);
-    } else if (totalAmt > 401) {
-      setShippingCharge(20);
-    }
-  }, [totalAmt]);
+  // useEffect(() => {
+  //   let price = 0;
+  //   products.map((item) => {
+  //     price += item.price * item.quantity;
+  //     return price;
+  //   });
+  //   setTotalAmt(price);
+  // }, [products]);
+  // useEffect(() => {
+  //   if (totalAmt <= 200) {
+  //     setShippingCharge(30);
+  //   } else if (totalAmt <= 400) {
+  //     setShippingCharge(25);
+  //   } else if (totalAmt > 401) {
+  //     setShippingCharge(20);
+  //   }
+  // }, [totalAmt]);
   return (
     <div className="max-w-container mx-auto px-4">
       <Breadcrumbs title="Cart" />

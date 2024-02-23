@@ -30,12 +30,12 @@ const SignIn = () => {
     try {
       res = await axios.post('http://localhost:6969/customers/login', { username, password });
       setIsSubmit(false);
-      console.log(res);
+      // console.log(res);
       localStorage.setItem('access_token', res.data.data.access_token);
-      dispatch(setUserLoginInfo(res.data.user))
+      dispatch(setUserLoginInfo(res.data.data.userData));
       message.success('Đăng nhập tài khoản thành công!');
       setTimeout(function() {
-        window.location.href = '/';
+        // window.location.href = '/';
       }, 1000);  
     } catch (error) {
       message.error('Sai tên đăng nhập hoặc mật khẩu');
