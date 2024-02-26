@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  userInfo: [],
-  products: [],
+  // userInfo: [],
+  // products: [],
 };
 
 export const orebiSlice = createSlice({

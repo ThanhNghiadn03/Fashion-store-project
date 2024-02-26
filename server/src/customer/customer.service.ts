@@ -56,7 +56,7 @@ export class CustomerService {
     if(customer == null) {
       return "Không tìm thấy khách hàng";
     }
-    return customer;
+    return {customer};
   }
 
   async update(updateCustomerDto: UpdateCustomerDto) {
@@ -82,5 +82,13 @@ export class CustomerService {
       {_id : id},
       {refreshToken: refresh_token}
     )
+  }
+
+  findCustomerByToken = async(refresh_token: string) => {
+    return await this.CustomerModel.findOne({refreshToken: refresh_token});
+  }
+
+  logoutCustomer = async (id: string) => {
+    return await this.CustomerModel.updateOne({_id: id},{refreshToken: null});
   }
 }

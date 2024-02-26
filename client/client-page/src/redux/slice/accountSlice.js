@@ -18,11 +18,9 @@ const initialState = {
     isRefreshToken: false,
     errorRefreshToken: "",
     user: {
+        id: "",
         email: "",
-        name: "",
-        phone: "",
-        _id: "",
-        // role: "ADMIN",
+        role: "",
     },
     // activeMenu: 'home'
 };
@@ -40,21 +38,24 @@ export const accountSlide = createSlice({
         setUserLoginInfo: (state, action) => {
             state.isAuthenticated = true;
             state.isLoading = false;
-            state.user = {
-                ...state.user,
-                ...action.payload
-            }
-            console.log(state.isAuthenticated);
+            state.user.id = action?.payload?.id;
+            state.user.email = action?.payload?.email;
+            state.user.role = action?.payload?.role;
+            console.log(action.payload);
         },
         setLogoutAction: (state, action) => {
             localStorage.removeItem('access_token');
             state.isAuthenticated = false;
             state.user = {
+                // email: "",
+                // phone: "",
+                // _id: "",
+                // role: "",
+                // name: ""
+                id: "",
                 email: "",
-                phone: "",
-                _id: "",
                 role: "",
-                name: ""
+
             }
         },
         setRefreshTokenAction: (state, action) => {
