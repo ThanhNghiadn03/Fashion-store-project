@@ -1,23 +1,25 @@
 import { createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
+
 
 const initialState = {
-  // userInfo: [],
-  // products: [],
+  userInfo: [],
+  products: [],
 };
 
 export const orebiSlice = createSlice({
   name: "orebi",
   initialState,
   reducers: {
-    addToCart: (state, action) => {
-      // const item = state.products.find(
-      //   (item) => item._id === action.payload._id
-      // );
-      // if (item) {
-      //   item.quantity += action.payload.quantity;
-      // } else {
-      //   state.products.push(action.payload);
-      // }
+    addToCart: async(state, action) => {
+      const item = state.products.find(
+        (item) => item._id === action.payload._id
+      );
+      if (item) {
+        item.quantity += action.payload.quantity;
+      } else {
+        state.products.push(action.payload);
+      }
     },
     increaseQuantity: (state, action) => {
       const item = state.products.find(

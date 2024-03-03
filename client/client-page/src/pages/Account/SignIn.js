@@ -7,6 +7,8 @@ import axios from 'axios';
 import { setUserLoginInfo } from "../../redux/slice/accountSlice";
 import { Button, Divider, Form, Input, message, notification, Checkbox } from 'antd';
 import { Typography } from 'antd';
+import { store } from "../../redux/store";
+import { reSetCart } from "../../redux/slice/cartSlice";
 
 const { Title } = Typography;
 
@@ -15,13 +17,9 @@ const SignIn = () => {
   const [isSubmit, setIsSubmit] = useState(false);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    //đã login => redirect to '/'
-    // if (localStorage.getItem('access_token')) {
-    //   navigate('/');
-    //   window.location.href = '/';
-    // }
-  }, [])
+  // useEffect(() => {
+  //   store.dispatch(reSetCart());
+  // }, [])
 
   const onFinish = async (values) => {
     const { username, password } = values;

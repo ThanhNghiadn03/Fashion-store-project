@@ -7,7 +7,7 @@ import { UpdateCartDto } from './dto/update-cart.dto';
 export class CartsController {
   constructor(private readonly cartsService: CartsService) {}
 
-  @Post()
+  @Post('create')
   create(@Body() createCartDto: CreateCartDto) {
     return this.cartsService.create(createCartDto);
   }
@@ -19,7 +19,12 @@ export class CartsController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.cartsService.findOne(+id);
+    return this.cartsService.findOne(id);
+  }
+
+  @Get('/cartByCustomer/:idCustomer')
+  findCartByIDCustomer(@Param('idCustomer') idCustomer: string) {
+    return this.cartsService.listCartByIdCustomer(idCustomer);
   }
 
   @Patch(':id')
@@ -27,8 +32,19 @@ export class CartsController {
     return this.cartsService.update(+id, updateCartDto);
   }
 
+  @Patch(':idProduct/:idCustomer')
+  updateQuantity(@Param('idProduct') idProduct: string,@Param('idCustomer') idCustomer: string, @Body() updateCartDto: UpdateCartDto) {
+    return this.cartsService.updateQuantity(idCustomer,idProduct,updateCartDto.quantity,updateCartDto.price);
+  }
+  
+
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.cartsService.remove(+id);
+    return this.cartsService.remove(id);
+  }
+
+  @Get('countInCart/:id')
+  countProductInCartByIDCustomer(@Param('id') id: string) {
+    return this.cartsService.numberOfProductInCartByIDCustomer(id);
   }
 }

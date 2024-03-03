@@ -31,12 +31,12 @@ export class Cart {
     )
     idOrder: mongoose.Types.ObjectId;
 
-    @Prop()
-    items : [{
+    @Prop({type: Object})
+    items : {
         quantity: number,
         price : number,
         imageProduct : string
-    }]
+    };
 
     @Prop()
     createdAt: Date
