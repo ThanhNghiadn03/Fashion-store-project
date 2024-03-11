@@ -22,6 +22,7 @@ const ProductInfo = ({ productInfo }) => {
               navigate('/')
               return;
             }
+            
             let isExist = false;
             let cart = store.getState().cartReducer.cart;
             for (let i = 0; i < cart.length; i++) {
@@ -36,21 +37,27 @@ const ProductInfo = ({ productInfo }) => {
               console.log('update số lượng');
               await axios.patch(`http://localhost:6969/carts/${productInfo._id}/${customer.id}`, {
                 quantity: productInfo.quantity+1, 
-                price: productInfo.price * (productInfo.quantity+1)
+                price: productInfo.price * (productInfo.quantity+1),
+                productName: productInfo.productName,
+                img: productInfo.img,
               });
             } else {
               await axios.post('http://localhost:6969/carts/create', {
                 idCustomers: customer.id,
                 idProduct: productInfo._id,
                 quantity: 1,
-                price: productInfo.price
+                price: productInfo.price,
+                nameProduct: productInfo.productName,
+                imageProduct: productInfo.img
               });
             }
 
             dispatch(setCart({
               idProducts : productInfo._id,
               quantity: 1,
-              price: productInfo.price
+              price: productInfo.price,
+              productName: productInfo.productName,
+              img: productInfo.img,
             }))
           }
         }

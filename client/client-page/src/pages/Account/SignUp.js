@@ -23,7 +23,7 @@ const SignUp = () => {
         phoneNumber
     } = values;
     setIsSubmit(true);
-    const res = await axios.post('http://localhost:6969/customers/register',{fullName,email,password,dateOfBirth,gender, phoneNumber});
+    const res = await axios.post('http://localhost:6969/customers/create',{fullName,email,password,dateOfBirth,gender, phoneNumber});
     setIsSubmit(false);
     if (res?.data?.data?._id) {
         message.success('Đăng ký tài khoản thành công!');

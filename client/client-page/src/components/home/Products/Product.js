@@ -51,6 +51,8 @@ const Product = (props) => {
                   navigate('/');
                   return;
                 }
+
+                console.log('props: ',props);
                 let isExist = false;
                 let index = 0;
                 let cart = store.getState().cartReducer.cart;
@@ -66,13 +68,17 @@ const Product = (props) => {
                 if(isExist) {
                   await axios.patch(`http://localhost:6969/carts/${props._id}/${customer.id}`, {
                     quantity: store.getState().cartReducer.cart[index].quantity +1, 
-                    price: props.price * (store.getState().cartReducer.cart[index].quantity+1)});
+                    price: props.price * (store.getState().cartReducer.cart[index].quantity+1),
+                    nameProduct: props.productName,
+                    imageProduct: props.img });
                 } else {
                   await axios.post('http://localhost:6969/carts/create', {
                       idCustomers: customer.id,
                       idProduct: props._id,
                       quantity: 1,
-                      price: props.price
+                      price: props.price,
+                      nameProduct: props.productName,
+                      imageProduct: props.img
                     });
                     console.log('customer: ',customer);
                     console.log('props: ',props);
@@ -80,7 +86,9 @@ const Product = (props) => {
                 dispatch(setCart({
                   idProducts : props._id,
                   quantity: 1,
-                  price: props.price
+                  price: props.price,
+                  productName: props.productName,
+                  img: props.img
                 }))
                 
                 

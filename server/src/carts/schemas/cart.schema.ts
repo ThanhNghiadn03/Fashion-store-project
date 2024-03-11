@@ -33,6 +33,7 @@ export class Cart {
 
     @Prop({type: Object})
     items : {
+        nameProduct: string,
         quantity: number,
         price : number,
         imageProduct : string

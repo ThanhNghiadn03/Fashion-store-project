@@ -16,18 +16,13 @@ import orebiReducer from "./orebiSlice";
 import accountReducer from "./slice/accountSlice";
 import cartReducer from "./slice/cartSlice"
 
-const rootReducer = combineReducers({
-  account: accountReducer,
-  cart: cartReducer,
-  // other reducers...
-});
 
 const persistConfig = {
   key: "root",
   storage,
 };
 
-const persistedReducer = persistReducer(persistConfig, orebiReducer,rootReducer);
+const persistedReducer = persistReducer(persistConfig, orebiReducer);
 const statePersistedReducer = persistReducer(persistConfig, accountReducer);
 const cartPersistedReducer = persistReducer(persistConfig, cartReducer);
 
@@ -45,15 +40,4 @@ export const store = configureStore({
     }),
 });
 
-export const combine = configureStore({
-  reducer: {
-    persisted: persistedReducer
-  },
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-      serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-      },
-    }),
-})
 export let persistor = persistStore(store);

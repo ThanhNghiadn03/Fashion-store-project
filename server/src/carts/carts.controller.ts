@@ -34,14 +34,15 @@ export class CartsController {
 
   @Patch(':idProduct/:idCustomer')
   updateQuantity(@Param('idProduct') idProduct: string,@Param('idCustomer') idCustomer: string, @Body() updateCartDto: UpdateCartDto) {
-    return this.cartsService.updateQuantity(idCustomer,idProduct,updateCartDto.quantity,updateCartDto.price);
+    return this.cartsService.updateQuantity(idCustomer,idProduct,updateCartDto.quantity,updateCartDto.price, updateCartDto.nameProduct,updateCartDto.imageProduct);
   }
   
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.cartsService.remove(id);
+  @Delete('/:id1/:id2')
+  removeProduct(@Param('id1') idCustomer: string,@Param('id2') idProduct: string) {
+    return this.cartsService.removeProductIncartByIDCus(idCustomer,idProduct);
   }
+
 
   @Get('countInCart/:id')
   countProductInCartByIDCustomer(@Param('id') id: string) {

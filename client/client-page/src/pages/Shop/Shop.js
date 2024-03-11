@@ -23,6 +23,7 @@ const Shop = () => {
     if (!localStorage.getItem('access_token')) {
       const action = () => {
         return dispatch => {
+          // store.dispatch(reSetCart());
           dispatch(setLogoutAction());
           dispatch(reSetCart());
         }

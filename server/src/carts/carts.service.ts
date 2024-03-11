@@ -16,7 +16,8 @@ export class CartsService {
       items: {
         quantity: createCartDto.quantity,
         price: createCartDto.price,
-        imageProduct: createCartDto.imageProduct
+        imageProduct: createCartDto.imageProduct,
+        nameProduct: createCartDto.nameProduct
       }
     })
     return cart;
@@ -61,7 +62,15 @@ export class CartsService {
     return count;
   }
 
-  updateQuantity = async(idCustomers: string, idProduct: string, quantity: number, price: number) =>{
+  removeProductIncartByIDCus = async(idCustomer: string, idProduct: string) => {
+    let result = await this.cartModel.deleteOne({
+      idCustomers: idCustomer,
+      idProduct: idProduct
+    })
+    return result;
+  }
+
+  updateQuantity = async(idCustomers: string, idProduct: string, quantity: number, price: number, name: string, img: string) =>{
     
     let result = await this.cartModel.updateOne(
     {
@@ -70,7 +79,9 @@ export class CartsService {
     {
       items: {
         quantity: quantity,
-        price: price
+        price: price,
+        nameProduct: name,
+        imageProduct: img
       }
     }
     )

@@ -48,38 +48,26 @@ export const cartSlide = createSlice({
             state.cart.push({
                 idProducts: item.payload[i].idProduct,
                 quantity: item.payload[i].items.quantity,
-                price: item.payload[i].items.price
+                price: item.payload[i].items.price,
+                productName: item.payload[i].items.nameProduct,
+                img: item.payload[i].items.imageProduct
             })
            }
         },
 
-        reSetCart: (state, action) => {
+        reSetCart: (state) => {
             state.cart = []
         }
 
-    },
-    extraReducers: (builder) => {
-        // Add reducers for additional action types here, and handle loading state as needed
-        builder.addCase(fetchCart.pending, (state, action) => {
-            
-        })
-
-        builder.addCase(fetchCart.fulfilled, (state, action) => {
-            if (action.payload) {
-                state.cart = { ...state.cart, ...action.payload.cart }
-            }
-        })
-
-        builder.addCase(fetchCart.rejected, (state, action) => {
-
-        })
-
-    },
+    }
 
 });
 
 export const {
-    setActiveMenu, setCart, reSetCart, startCart
+    setActiveMenu, 
+    setCart, 
+    reSetCart, 
+    startCart
 } = cartSlide.actions;
 
 export default cartSlide.reducer;

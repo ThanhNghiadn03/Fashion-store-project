@@ -56,10 +56,12 @@ const HeaderBottom = () => {
     }).post('/logout');
     console.log(res.data);
       if (res && res.data) {
-          store.dispatch(setLogoutAction({}));
-          message.success('Đăng xuất thành công');
-          navigate('/')
+        store.dispatch(setLogoutAction());
+        // store.dispatch(reSetCart());
+        message.success('Đăng xuất thành công');
+        navigate('/')
     }
+
   }
 
   useEffect(() => {

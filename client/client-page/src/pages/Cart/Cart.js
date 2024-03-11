@@ -7,30 +7,42 @@ import { resetCart } from "../../redux/orebiSlice";
 import { emptyCart } from "../../assets/images/index";
 import ItemCard from "./ItemCard";
 import axios from "axios";
+import { store } from "../../redux/store";
+import { reSetCart } from "../../redux/slice/cartSlice";
 
 const Cart = () => {
   const dispatch = useDispatch();
-  const products = useSelector((state) => state.orebiReducer.products);
+  const products = useSelector((state) => state.cartReducer.cart);
   const customer = useSelector((state) => state.account.user);
   const [totalAmt, setTotalAmt] = useState("");
   const [shippingCharge, setShippingCharge] = useState("");
-  // useEffect(() => {
-  //   let price = 0;
-  //   products.map((item) => {
-  //     price += item.price * item.quantity;
-  //     return price;
-  //   });
-  //   setTotalAmt(price);
-  // }, [products]);
-  // useEffect(() => {
-  //   if (totalAmt <= 200) {
-  //     setShippingCharge(30);
-  //   } else if (totalAmt <= 400) {
-  //     setShippingCharge(25);
-  //   } else if (totalAmt > 401) {
-  //     setShippingCharge(20);
-  //   }
-  // }, [totalAmt]);
+  useEffect(() => {
+    let price = 0;
+    products.map((item) => {
+      price += item.price;
+      return price;
+    });
+    setTotalAmt(price);
+  }, [products]);
+  useEffect(() => {
+    if (totalAmt <= 200) {
+      setShippingCharge(30);
+    } else if (totalAmt <= 400) {
+      setShippingCharge(25);
+    } else if (totalAmt > 401) {
+      setShippingCharge(20);
+    }
+  }, [totalAmt]);
+
+  const resetCartOnFrontend = async() => {
+    try {
+      console.log('customer id: ',customer.id);
+      await axios.delete(`http://localhost:6969/carts/resetCart/${customer.id}`);
+      dispatch(reSetCart());
+    } catch (error) {
+      console.log('Lỗi reset cart: ', error);
+    }
+  }
 
   return (
     <div className="max-w-container mx-auto px-4">
@@ -45,18 +57,18 @@ const Cart = () => {
           </div>
           <div className="mt-5">
             {products.map((item) => (
-              <div key={item._id}>
+              <div key={item.idProducts}>
                 <ItemCard item={item} />
               </div>
             ))}
           </div>
 
-          <button
-            onClick={() => dispatch(resetCart())}
+          {/* <button
+            onClick={resetCartOnFrontend}
             className="py-2 px-10 bg-red-500 text-white font-semibold uppercase mb-4 hover:bg-red-700 duration-300"
           >
             Reset cart
-          </button>
+          </button> */}
 
           <div className="flex flex-col mdl:flex-row justify-between border py-4 px-4 items-center gap-2 mdl:gap-0">
             <div className="flex items-center gap-4">

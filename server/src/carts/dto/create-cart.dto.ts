@@ -24,4 +24,6 @@ export class CreateCartDto {
     price: number;
 
     imageProduct: string;
+
+    nameProduct: string;
 }

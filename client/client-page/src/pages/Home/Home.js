@@ -18,9 +18,11 @@ const Home = () => {
   const isAuthenticated = store.getState().account.isAuthenticated;
 
   useEffect(() => {
+    store.dispatch(reSetCart());
     if (!localStorage.getItem('access_token')) {
       const action = () => {
         return dispatch => {
+          // store.dispatch(reSetCart());
           dispatch(setLogoutAction());
           dispatch(reSetCart());
         }

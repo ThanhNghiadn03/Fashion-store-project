@@ -17,9 +17,7 @@ const SignIn = () => {
   const [isSubmit, setIsSubmit] = useState(false);
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   store.dispatch(reSetCart());
-  // }, [])
+  
 
   const onFinish = async (values) => {
     const { username, password } = values;
@@ -39,7 +37,7 @@ const SignIn = () => {
       // console.log(error);
       message.error('Sai tên đăng nhập hoặc mật khẩu');
     }
-    
+
   };
 
   return (
